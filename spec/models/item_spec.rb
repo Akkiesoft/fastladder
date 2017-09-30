@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  feed_id        :integer          default(0), not null
-#  link           :string(255)      default(""), not null
+#  link           :text             default(""), not null
 #  title          :text             not null
 #  body           :text
 #  author         :string(255)

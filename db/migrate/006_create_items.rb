@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration[4.2]
   def self.up
     create_table :items do |t|
       t.integer :feed_id, default: 0, null: false
-      t.string :link, default: "", null: false
+      t.text :link, null: false
       t.text :title, null: false
       t.text :body
       t.string :author
@@ -16,7 +16,7 @@ class CreateItems < ActiveRecord::Migration[4.2]
       t.datetime :created_on, null: false
       t.datetime :updated_on, null: false
     end
-    add_index :items, [:feed_id, :link], unique: true
+    add_index :items, [:feed_id, :link], unique: true, length: {link: 255}
   end
 
   def self.down
