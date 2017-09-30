@@ -9,9 +9,10 @@ class MembersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @member = Member.new(member_params)
-    @member.save!
-    session[:member_id] = @member.id
+# make private system
+#    @member = Member.new(member_params)
+#    @member.save!
+#    session[:member_id] = @member.id
     redirect_to '/'
     flash[:notice] = "Thanks for signing up!"
   rescue ActiveRecord::RecordInvalid
