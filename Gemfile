@@ -22,9 +22,9 @@ end
 if adapters.any?
   adapters.each do |adapter|
     case adapter
-    when 'mysql2'     ; gem 'mysql2'
+    when 'mysql2'     ; gem 'mysql2', '~> 0.4.10'
     when 'mysql'      ; gem 'mysql'
-    when /postgres/   ; gem 'pg'
+    when /postgres/   ; gem 'pg', '~> 0.21.0'
     when /sqlite3/    ; gem 'sqlite3'
     else
       warn("Unknown database adapter `#{adapter}` found in config/database.yml, use Gemfile.local to load your own database gems")
@@ -32,7 +32,7 @@ if adapters.any?
   end
 else
   warn("No adapter found in config/database.yml or DATABASE_URL, please configure it first -- fallback to pg")
-  gem 'pg'
+  gem 'pg', '~> 0.21.0'
 end
 
 gem 'addressable', require: 'addressable/uri'
